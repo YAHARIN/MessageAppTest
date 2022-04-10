@@ -13,11 +13,17 @@ Each process of an application must be disposable.
 
 Our application exposes HTTP endPoints that are easy and quick to handle. If we were to have some long lasting worker processes, the usage of a queueing system, like Apache Kafka, would be a great choice.
 
+Apache Kafka:
+https://www.youtube.com/watch?v=PzPXRmVHMxI
+
 Kafka stores indexes of events processed by each worker. When a worker is restared, it can provide an index indicating at which point in time it needs to restart the event handling. Doing so no events are lost.
 
 [Docker Store](https://store.docker.com) offers several image of Kafka ([Spotify](https://store.docker.com/community/images/spotify/kafka), [Wurstmeister](https://store.docker.com/community/images/wurstmeister/kafka), ...) that can easily be integrated in the docker-compose file of the application.
 
 Below is an example of how Kafka (and zookeeper) could be added to our docker-compose file. Of course, this means the application has been slightly changed to be able to write and read to/from Kafka.
+
+![image](https://user-images.githubusercontent.com/11826129/162606993-50add25d-6457-4cc7-a7eb-714b65e749a1.png)
+
 
 
 ```
